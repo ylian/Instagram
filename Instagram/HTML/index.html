@@ -6,8 +6,39 @@
   <title>Instagram</title>
   <link rel="stylesheet" href="main.css">
   <script src="jquery-2.1.0.min.js"></script>
+  <script src="live-reload.js"></script>
+  <script>
+    var loadApp = function () {
+      console.log("load app");
+    };
+    $(loadApp);
+  </script>
 </head>
 <body>
-
+<div id="image-preview"></div>
+<div id="filter-area">
+  <ul class="filters">
+    <li class="filter">
+      <canvas width="100px" height="100px"></canvas>
+      <div class="caption">Normal</div>
+    </li>
+    <li class="filter">
+      <canvas width="100px" height="100px"></canvas>
+      <div class="caption">Normal</div>
+    </li>
+    <li class="filter">
+      <canvas width="100px" height="100px"></canvas>
+      <div class="caption">Normal</div>
+    </li>
+    <li class="filter">
+      <canvas width="100px" height="100px"></canvas>
+      <div class="caption">Normal</div>
+    </li>
+    <li class="filter">
+      <canvas width="100px" height="100px"></canvas>
+      <div class="caption">Normal</div>
+    </li>
+  </ul>
+</div>
 </body>
 </html>

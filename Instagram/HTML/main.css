@@ -1,3 +1,98 @@
+/*
+* General
+*/
+
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+  -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+  -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+  -webkit-perspective: 1500px;
+}
+
+.clear {
+  clear: both;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+
+/*
+* Image Preview
+*/
+
+#image-preview {
+  position: absolute;
+  top: 0;
+  bottom: 30%;
+  left: 0;
+  right: 0;
   background: red;
+}
+
+
+/*
+* Filters
+*/
+
+#filter-area {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+ul.filters {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+li.filter {
+  display: block;
+  float: left;
+  margin: 10px;
+  width: 90px;
+  height: 100px;
+  margin: 10px;
+}
+
+li.filter.selected {
+  border: 2px solid blue;
+}
+
+li.filter canvas {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+  background: blue;
+}
+
+li.filter .caption {
+  font-size: 13px;
+  text-transform: uppercase;
 }
