@@ -1,6 +1,4 @@
-This is a clone of the Instagram image filter view, built with `JSExport`.
-
-This is a demo I made for the DevHouse Waterloo Meetup on Aug. 25, 2014. The goal is to demonstrate the great power of using `JSExport` to build a new generation of hybrid apps. You can see my slides [here](http://slides.com/ylian).
+This is a demo project I made for the DevHouse Waterloo Meetup on Aug. 25, 2014. The goal is to demonstrate the great power of using `JSExport` to build a new generation of hybrid apps. You can see my slides [here](http://slides.com/ylian).
 
 `JSExport` is Apple's new Objective-C to JavaScript bridge, but it's much more than that. It's a huge leap in developing hybrid apps --- apps that combile native technology with web technology, making use of each platform's strength.
 
