@@ -1,12 +1,14 @@
 This is a demo project I made for the DevHouse Waterloo Meetup on Aug. 25, 2014. The goal is to demonstrate the great power of using `JSExport` to build a new generation of hybrid apps. You can see my slides [here](http://slides.com/ylian).
 
-`JSExport` is Apple's new Objective-C to JavaScript bridge, but it's much more than that. It's a huge leap in developing hybrid apps --- apps that combile native technology with web technology, making use of each platform's strength.
+`JSExport` is Apple's new Objective-C to JavaScript bridge, but it's much more than that. It's a huge leap in terms of developing hybrid apps --- apps that combile native technology with web technology, making use of each platform's strength.
 
-Previous Objective-C to JavaScript bridges require ugly hacks and convoluted code. `JSExport` changed all that. There is almost no boilerplate code involved. An Objective-C class is automagically made available to the JavaScript runtime, and all the data structures are converted automatically for you. You can use the Objective-C class as if it's a regular JavaScript library.
+Previous Objective-C to JavaScript bridges require ugly hacks and tedious data type conversions. `JSExport` changed all that. There is almost no boilerplate code involved. An Objective-C class is automagically made available to the JavaScript runtime, and data types are converted automatically for you. You can use the Objective-C class as if it's a regular JavaScript library.
 
-This opens up lots of possibilities. Apple has built amazing functionalities into iOS and OS X, and now all those functionalities are opened up to the JavaScript runtime.
+This opens up lots of possibilities. Apple has built amazing native technologies into iOS and OS X, and now all those native functionalities are right at your fingertips, and super easy to use.
 
-In this demo, I created a simple clone of the Instagram image filter view, using `CIImage` filter on the native side, and just 50 lines of JavaScript to render the UI. To keep things simple, I didn't use any web framework, just a little bit jQuery. Here is a screenshot of the app.
+In this demo, I created a simple clone of the Instagram image filter view, using `CIImage` filters from the native side, and just 50 lines of JavaScript to render the UI. To keep things simple, I didn't use any web framework, just a little bit of jQuery.
+
+Here is a screenshot of the app.
 
 ![Screenshot](http://github.com/ylian/Instagram/screenshot.png)
 
