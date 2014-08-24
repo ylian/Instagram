@@ -28,8 +28,9 @@
     _webView.delegate = self;
     
     // Load index.html
-    NSString *indexPath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"HTML"];
-    NSURL *url = [NSURL fileURLWithPath:indexPath];
+//    NSString *indexPath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"HTML"];
+//    NSURL *url = [NSURL fileURLWithPath:indexPath];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.17:4000"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [_webView loadRequest:request];
 }
