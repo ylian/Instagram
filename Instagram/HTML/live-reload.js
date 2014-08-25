@@ -9,9 +9,10 @@
   }
 
   window.onload = function() {
-    var connection, port;
+    var connection, host, port;
+    host = window.location.hostname;
     port = 9485;
-    connection = new WebSocket("ws://localhost:" + port);
+    connection = new WebSocket("ws://" + host + ":" + port);
     return connection.onmessage = onMessage;
   };
 
