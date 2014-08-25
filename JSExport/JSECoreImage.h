@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
-@interface JSECoreImage : NSObject
+@class JSECoreImage;
+
+@protocol JSECoreImageExports <JSExport>
+
++ (JSECoreImage *)create;
+
+JSExportAs(applyVignetteFilter,
+- (UIImage *)applyVignetteFilter:(UIImage *)srcImage withRadius:(float)inputRadius andIntensity:(float)inputIntensity
+);
+
+@end
+
+@interface JSECoreImage : NSObject <JSECoreImageExports>
 
 @end

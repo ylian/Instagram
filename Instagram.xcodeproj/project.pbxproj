@@ -24,6 +24,8 @@
 		8941F31E19AA8C9B008656B3 /* JSECoreImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8941F31D19AA8C9B008656B3 /* JSECoreImage.m */; };
 		8941F32019AA8D49008656B3 /* HTML in Resources */ = {isa = PBXBuildFile; fileRef = 8941F31F19AA8D49008656B3 /* HTML */; };
 		898139CD19AAD5370092B7B2 /* JSEImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 898139CC19AAD5370092B7B2 /* JSEImagePicker.m */; };
+		898139D019AB90010092B7B2 /* sunflower.png in Resources */ = {isa = PBXBuildFile; fileRef = 898139CF19AB90010092B7B2 /* sunflower.png */; };
+		898139D219AB90180092B7B2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898139D119AB90180092B7B2 /* CoreImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		8941F31F19AA8D49008656B3 /* HTML */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTML; sourceTree = "<group>"; };
 		898139CB19AAD5370092B7B2 /* JSEImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSEImagePicker.h; sourceTree = "<group>"; };
 		898139CC19AAD5370092B7B2 /* JSEImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSEImagePicker.m; sourceTree = "<group>"; };
+		898139CF19AB90010092B7B2 /* sunflower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunflower.png; sourceTree = "<group>"; };
+		898139D119AB90180092B7B2 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				898139D219AB90180092B7B2 /* CoreImage.framework in Frameworks */,
 				8941F2E819AA8B66008656B3 /* CoreGraphics.framework in Frameworks */,
 				8941F2EA19AA8B66008656B3 /* UIKit.framework in Frameworks */,
 				8941F2E619AA8B66008656B3 /* Foundation.framework in Frameworks */,
@@ -110,6 +115,7 @@
 		8941F2E419AA8B66008656B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				898139D119AB90180092B7B2 /* CoreImage.framework */,
 				8941F2E519AA8B66008656B3 /* Foundation.framework */,
 				8941F2E719AA8B66008656B3 /* CoreGraphics.framework */,
 				8941F2E919AA8B66008656B3 /* UIKit.framework */,
@@ -126,8 +132,7 @@
 				8941F2FA19AA8B66008656B3 /* ViewController.h */,
 				8941F2FB19AA8B66008656B3 /* ViewController.m */,
 				8941F2F719AA8B66008656B3 /* Main.storyboard */,
-				8941F31F19AA8D49008656B3 /* HTML */,
-				8941F2FD19AA8B66008656B3 /* Images.xcassets */,
+				898139CE19AB8FF70092B7B2 /* Resources */,
 				8941F2EC19AA8B66008656B3 /* Supporting Files */,
 			);
 			path = Instagram;
@@ -171,6 +176,16 @@
 				8941F31D19AA8C9B008656B3 /* JSECoreImage.m */,
 			);
 			name = JSExport;
+			sourceTree = "<group>";
+		};
+		898139CE19AB8FF70092B7B2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				898139CF19AB90010092B7B2 /* sunflower.png */,
+				8941F31F19AA8D49008656B3 /* HTML */,
+				8941F2FD19AA8B66008656B3 /* Images.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +267,7 @@
 				8941F2FE19AA8B66008656B3 /* Images.xcassets in Resources */,
 				8941F32019AA8D49008656B3 /* HTML in Resources */,
 				8941F2F019AA8B66008656B3 /* InfoPlist.strings in Resources */,
+				898139D019AB90010092B7B2 /* sunflower.png in Resources */,
 				8941F2F919AA8B66008656B3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
