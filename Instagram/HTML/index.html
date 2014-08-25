@@ -33,6 +33,7 @@
     };
 
     var filters = ['normal', 'vignette', 'vintage', 'curve', 'saturation', 'b&w'];
+    var picker;
 
     var loadApp = function () {
       var $ul = $('ul.filters');
@@ -49,7 +50,7 @@
       // Handle clicks on the camera button
       var img = $('#image-preview img')[0];
       $('.right-bar-button').on('click', function(evt) {
-        var picker = JSEImagePicker.create();
+        picker = JSEImagePicker.create();
         picker.getPicture({sourceType: 'Camera'}, function(status, imageURI) {
           img.src = imageURI;
         });
