@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "JSEImagePicker.h"
+#import "JSECoreImage.h"
 
 @implementation ViewController
 
@@ -29,9 +30,9 @@
     _webView.delegate = self;
     
     // Load index.html
-//    NSString *indexPath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"HTML"];
-//    NSURL *url = [NSURL fileURLWithPath:indexPath];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.17:4000"];
+    NSString *indexPath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"HTML"];
+    NSURL *url = [NSURL fileURLWithPath:indexPath];
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.17:4000"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [_webView loadRequest:request];
 }
@@ -54,6 +55,24 @@
 {
     JSContext *ctx = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     ctx[@"JSEImagePicker"] = [JSEImagePicker class];
+    ctx[@"JSECoreImage"] = [JSECoreImage class];
+    
+//    // Create filter thumbnails
+//    JSECoreImage *imageConverter = [JSECoreImage create];
+//    UIImage *srcImage = [UIImage imageNamed:@"sunflower.png"];
+//    ctx[@"createThumbnail"] = ^(NSString *filter) {
+//        UIImage *converted = [imageConverter applyVignetteFilter:srcImage withRadius:20.0 andIntensity:0.5];
+//        
+//        // Write to the temp directory
+//        NSString *docsPath = [NSTemporaryDirectory() stringByStandardizingPath];
+//        NSString *tempFile = [NSString stringWithFormat:@"%@/PHOTO_%@.png", docsPath, [[NSUUID UUID] UUIDString]];
+//        [UIImagePNGRepresentation(converted) writeToFile:tempFile atomically:YES];
+//        
+//        return [[NSURL fileURLWithPath:tempFile] absoluteString];
+//    };
+    
+    // Load the webapp
+    [ctx evaluateScript:@"loadApp()"];
 }
 
 @end

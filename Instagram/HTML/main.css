@@ -146,11 +146,7 @@ ul.filters li {
   -webkit-transform-origin: 0 0;
 }
 
-ul.filters li.selected {
-  border: 2px solid blue;
-}
-
-ul.filters li canvas {
+ul.filters li img {
   width: 80px;
   height: 80px;
   margin-bottom: 5px;

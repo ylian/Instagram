@@ -32,31 +32,32 @@
       el.style.transform = transform;
     };
 
+    var preview, picker, imageConverter;
     var filters = ['normal', 'vignette', 'vintage', 'curve', 'saturation', 'b&w'];
-    var picker;
 
     var loadApp = function () {
       var $ul = $('ul.filters');
       var x = 0, y = 0;
 
+      preview = $('#image-preview img')[0];
+      picker = JSEImagePicker.create();
+      imageConverter = JSECoreImage.create();
+
       // Create filters
       for (var i=0; i<filters.length; i++) {
-        var $li = $("<li><canvas width='100px' height='100px'></canvas><div class='caption'>" + filters[i] + "</div></li>");
+        var $li = $("<li><img src='' alt=''><div class='caption'>" + filters[i] + "</div></li>");
         setTransform($li[0], "translate(" + x + "px," + y + "px)");
-        x += 100;
         $ul.append($li);
+        x += 100;
       }
 
       // Handle clicks on the camera button
-      var img = $('#image-preview img')[0];
       $('.right-bar-button').on('click', function(evt) {
-        picker = JSEImagePicker.create();
         picker.getPicture({sourceType: 'Camera'}, function(status, imageURI) {
-          img.src = imageURI;
+          preview.src = imageURI;
         });
       });
     };
-    $(loadApp);
   </script>
 
 </head>
