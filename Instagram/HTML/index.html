@@ -32,7 +32,7 @@
       el.style.transform = transform;
     };
 
-    var preview, picker, imageConverter;
+    var preview, picker, converter;
 
     // https://developer.apple.com/library/mac/documentation/graphicsimaging/reference/CoreImageFilterReference/Reference/reference.html#//apple_ref/doc/filter/ci/CISepiaTone
     var filters = [
@@ -94,7 +94,7 @@
 
       preview = $('#image-preview img')[0];
       picker = JSEImagePicker.create();
-      imageConverter = JSECoreImage.create();
+      converter = JSECoreImage.create();
 
       // Create filters
       for (var i=0; i<filters.length; i++) {
@@ -107,10 +107,23 @@
       }
 
       // Handle clicks on the camera button
-      $('.right-bar-button').on('click', function(evt) {
-        picker.getPicture({sourceType: 'Camera'}, function(status, imageURI) {
-          preview.src = imageURI;
+      $('.right-bar-button').on('click', function(e) {
+        picker.getPicture({sourceType: 'Camera'}, function(status, imageURI, relativeURI) {
+          preview.src = preview.originalSrc = imageURI;
+          preview.relativeSrc = relativeURI;
         });
+      });
+
+      // Handle clicks on the filter thumbnails
+      $('ul.filters li').on('click', function(e) {
+        var $li = $(e.currentTarget);
+        var index = $li.index();
+        var filter = filters[index];
+        if (filter.name != 'Normal') {
+          preview.src = converter.applyFilter(filter.CIName, preview.relativeSrc, filter.options);
+        } else {
+          preview.src = preview.originalSrc;
+        }
       });
     };
   </script>

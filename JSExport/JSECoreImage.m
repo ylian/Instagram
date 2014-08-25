@@ -32,4 +32,16 @@
     return image;
 }
 
+- (NSString *)applyFilter:(NSString *)name onImagePath:(NSString *)srcPath options:(NSDictionary *)options
+{
+    UIImage *srcImage = [UIImage imageWithContentsOfFile:srcPath];
+    UIImage *converted = [self applyFilter:name onImage:srcImage options:options];
+    
+    // Write to the temp directory and return the imageURI
+    NSString *docsPath = [NSTemporaryDirectory() stringByStandardizingPath];
+    NSString *tempFile = [NSString stringWithFormat:@"%@/PHOTO_%@.png", docsPath, [[NSUUID UUID] UUIDString]];
+    [UIImagePNGRepresentation(converted) writeToFile:tempFile atomically:YES];
+    return [[NSURL fileURLWithPath:tempFile] absoluteString];
+}
+
 @end

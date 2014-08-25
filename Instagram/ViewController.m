@@ -69,7 +69,7 @@
             converted = [imageConverter applyFilter:name onImage:srcImage options:options];
         }
         
-        // Write to the temp directory
+        // Write to the temp directory and return the imageURI
         NSString *docsPath = [NSTemporaryDirectory() stringByStandardizingPath];
         NSString *tempFile = [NSString stringWithFormat:@"%@/PHOTO_%@.png", docsPath, [[NSUUID UUID] UUIDString]];
         [UIImagePNGRepresentation(converted) writeToFile:tempFile atomically:YES];

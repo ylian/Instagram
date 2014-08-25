@@ -84,7 +84,7 @@
     [UIImagePNGRepresentation(image) writeToFile:tempFile atomically:YES];
     
     // Return imageURI
-    [callback callWithArguments:@[@"Success", [[NSURL fileURLWithPath:tempFile] absoluteString]]];
+    [callback callWithArguments:@[@"Success", [[NSURL fileURLWithPath:tempFile] absoluteString], tempFile]];
     [self closePicker];
 }
 

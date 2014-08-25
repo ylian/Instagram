@@ -15,8 +15,10 @@
 
 + (JSECoreImage *)create;
 
+- (UIImage *)applyFilter:(NSString *)name onImage:(UIImage *)srcImage options:(NSDictionary *)options;
+
 JSExportAs(applyFilter,
-- (UIImage *)applyFilter:(NSString *)name onImage:(UIImage *)srcImage options:(NSDictionary *)options
+- (NSString *)applyFilter:(NSString *)name onImagePath:(NSString *)srcPath options:(NSDictionary *)options
 );
 
 @end
