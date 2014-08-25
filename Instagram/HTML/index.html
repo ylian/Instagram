@@ -20,41 +20,39 @@
   <!-- Title -->
   <title>Instagram</title>
   <link rel="stylesheet" href="main.css">
-
   <script src="jquery-2.1.0.min.js"></script>
   <script src="live-reload.js"></script>
+
   <script>
+    var setTransform = function(el, transform) {
+      el.style.WebkitTransform =
+      el.style.MozTransform =
+      el.style.msTransform =
+      el.style.OTransform =
+      el.style.transform = transform;
+    };
+
+    var filters = ['normal', 'vignette', 'vintage', 'curve', 'saturation', 'b&w'];
+
     var loadApp = function () {
-      console.log("load app");
+      var $ul = $('ul.filters');
+      var x = 0, y = 0;
+
+      for (var i=0; i<filters.length; i++) {
+        var $li = $("<li><canvas width='100px' height='100px'></canvas><div class='caption'>" + filters[i] + "</div></li>");
+        setTransform($li[0], "translate(" + x + "px," + y + "px)");
+        x += 100;
+        $ul.append($li);
+      }
     };
     $(loadApp);
   </script>
+
 </head>
 <body>
 <div id="image-preview"></div>
 <div id="filter-area">
-  <ul class="filters">
-    <li>
-      <canvas width="100px" height="100px"></canvas>
-      <div class="caption">Normal</div>
-    </li>
-    <li>
-      <canvas width="100px" height="100px"></canvas>
-      <div class="caption">Normal</div>
-    </li>
-    <li>
-      <canvas width="100px" height="100px"></canvas>
-      <div class="caption">Normal</div>
-    </li>
-    <li>
-      <canvas width="100px" height="100px"></canvas>
-      <div class="caption">Normal</div>
-    </li>
-    <li>
-      <canvas width="100px" height="100px"></canvas>
-      <div class="caption">Normal</div>
-    </li>
-  </ul>
+  <ul class="filters"></ul>
 </div>
 </body>
 </html>
