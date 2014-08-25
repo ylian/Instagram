@@ -131,14 +131,14 @@ ul.filters {
 }
 
 ul.filters li {
+  display: block;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   width: 80px;
-  -webkit-transform-origin: 0 0;
-  display: block;
   margin: 10px;
+  -webkit-transform-origin: 0 0;
 }
 
 ul.filters li.selected {
@@ -150,6 +150,9 @@ ul.filters li canvas {
   height: 80px;
   margin-bottom: 5px;
   background: #eee;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 
 ul.filters li .caption {
