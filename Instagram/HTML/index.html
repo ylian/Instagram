@@ -47,19 +47,11 @@
       }
 
       // Handle clicks on the camera button
-      var ctx = $('#image-preview canvas')[0].getContext('2d');
+      var img = $('#image-preview img')[0];
       $('.right-bar-button').on('click', function(evt) {
         var picker = JSEImagePicker.create();
         picker.getPicture({sourceType: 'Camera'}, function(status, imageURI) {
-          var img = new Image();
           img.src = imageURI;
-          img.onload = function() {
-            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-            ctx.save();
-            ctx.scale(0.5, 0.5);
-            ctx.drawImage(img, 0, 0);
-            ctx.restore();
-          }
         });
       });
     };
@@ -76,7 +68,7 @@
 </div>
 
 <div id="image-preview">
-  <canvas class="preview" width="320" height="320"></canvas>
+  <img src="" alt="">
 </div>
 <div id="filter-area">
   <ul class="filters"></ul>

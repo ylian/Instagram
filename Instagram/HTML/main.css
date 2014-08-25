@@ -103,6 +103,11 @@ body {
   background-size: 90px 90px;
 }
 
+#image-preview img {
+  width: 320px;
+  height: 320px;
+}
+
 
 /*
 * Filters
