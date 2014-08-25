@@ -57,6 +57,7 @@
     _picker.modalPresentationStyle = UIModalPresentationCurrentContext;
     _picker.mediaTypes = @[(NSString *)kUTTypeImage]; // images only
     _picker.sourceType = [JSEImagePicker getSourceTypeClass:sourceType];
+    _picker.allowsEditing = YES;
     _picker.delegate = self;
     
     UIViewController *rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
@@ -66,6 +67,7 @@
 - (void)closePicker
 {
     [_picker dismissViewControllerAnimated:YES completion:NULL];
+    _picker = nil;
 }
 
 
@@ -74,9 +76,15 @@
 // This method is called when an image has been chosen from the library or taken from the camera.
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    NSLog(@"image: %@", image);
-    [callback callWithArguments:@[@"Success"]];
+    UIImage *image = [info valueForKey:UIImagePickerControllerEditedImage];
+    
+    // Write to the temp directory
+    NSString *docsPath = [NSTemporaryDirectory() stringByStandardizingPath];
+    NSString *tempFile = [NSString stringWithFormat:@"%@/PHOTO_%@.png", docsPath, [[NSUUID UUID] UUIDString]];
+    [UIImagePNGRepresentation(image) writeToFile:tempFile atomically:YES];
+    
+    // Return imageURI
+    [callback callWithArguments:@[@"Success", [[NSURL fileURLWithPath:tempFile] absoluteString]]];
     [self closePicker];
 }
 

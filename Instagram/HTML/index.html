@@ -47,9 +47,20 @@
       }
 
       // Handle clicks on the camera button
-      $('#camera-icon img').on('click', function(evt) {
+      var ctx = $('#image-preview canvas')[0].getContext('2d');
+      $('.right-bar-button').on('click', function(evt) {
         var picker = JSEImagePicker.create();
-        picker.getPicture({sourceType: 'Camera'});
+        picker.getPicture({sourceType: 'Camera'}, function(status, imageURI) {
+          var img = new Image();
+          img.src = imageURI;
+          img.onload = function() {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            ctx.save();
+            ctx.scale(0.5, 0.5);
+            ctx.drawImage(img, 0, 0);
+            ctx.restore();
+          }
+        });
       });
     };
     $(loadApp);
@@ -57,10 +68,15 @@
 
 </head>
 <body>
-<div id="image-preview">
-  <div id="camera-icon">
-    <img src="images/camera-icon.png" alt="Camera">
+<div class="navbar">
+  <div class="title">Instagram</div>
+  <div class="right-bar-button">
+    <a href="#" class="icon-camera"></a>
   </div>
+</div>
+
+<div id="image-preview">
+  <canvas class="preview" width="320" height="320"></canvas>
 </div>
 <div id="filter-area">
   <ul class="filters"></ul>
