@@ -15,15 +15,16 @@
     return [[JSECoreImage alloc] init];
 }
 
-- (UIImage *)applyVignetteFilter:(UIImage *)srcImage withRadius:(float)inputRadius andIntensity:(float)inputIntensity
+- (UIImage *)applyFilter:(NSString *)name onImage:(UIImage *)srcImage options:(NSDictionary *)options
 {
     CIContext *context = [CIContext contextWithOptions:nil];
-    CIFilter *filter= [CIFilter filterWithName:@"CIVignette"];
+    CIFilter *filter= [CIFilter filterWithName:name];
     CIImage *inputImage = [[CIImage alloc] initWithImage:srcImage];
-    
     [filter setValue:inputImage forKey:@"inputImage"];
-    [filter setValue:[NSNumber numberWithFloat:inputIntensity] forKey:@"inputIntensity"];
-    [filter setValue:[NSNumber numberWithFloat:inputRadius] forKey:@"inputRadius"];
+    
+    for (NSString *key in options) {
+        [filter setValue:options[key] forKey:key];
+    }
     
     CGImageRef imageRef = [context createCGImage:[filter outputImage] fromRect:filter.outputImage.extent];
     UIImage *image = [UIImage imageWithCGImage:imageRef scale:srcImage.scale orientation:srcImage.imageOrientation];

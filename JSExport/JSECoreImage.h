@@ -15,8 +15,8 @@
 
 + (JSECoreImage *)create;
 
-JSExportAs(applyVignetteFilter,
-- (UIImage *)applyVignetteFilter:(UIImage *)srcImage withRadius:(float)inputRadius andIntensity:(float)inputIntensity
+JSExportAs(applyFilter,
+- (UIImage *)applyFilter:(NSString *)name onImage:(UIImage *)srcImage options:(NSDictionary *)options
 );
 
 @end

@@ -33,7 +33,71 @@
     };
 
     var preview, picker, imageConverter;
-    var filters = ['normal', 'vignette', 'vintage', 'curve', 'saturation', 'b&w'];
+
+    // https://developer.apple.com/library/mac/documentation/graphicsimaging/reference/CoreImageFilterReference/Reference/reference.html#//apple_ref/doc/filter/ci/CISepiaTone
+    var filters = [
+      {
+        "name": "Normal",
+        "CIName": "Normal"
+      },
+      {
+        "name": "Vignette",
+        "CIName": "CIVignette",
+        "options": {
+          "inputIntensity": 0.8,
+          "inputRadius": 20.0
+        }
+      },
+      {
+        "name": "Sepia",
+        "CIName": "CISepiaTone",
+        "options": {
+          "inputIntensity": 1.0
+        }
+      },
+      {
+        "name": "Invert Color",
+        "CIName": "CIColorInvert"
+      },
+      {
+        "name": "Posterize", // remaps red, green, and blue color components to the number of brightness values you specify for each color component
+        "CIName": "CIColorPosterize"
+      },
+      {
+        "name": "Dot Screen", // simulate the dot patterns of a halftone screen
+        "CIName": "CIDotScreen"
+      },
+      {
+        "name": "Exposure Adjust",
+        "CIName": "CIExposureAdjust",
+        "options": {
+          "inputEV": 0.8
+        }
+      },
+      {
+        "name": "Gaussian Blur",
+        "CIName": "CIGaussianBlur",
+        "options": {
+          "inputRadius": 5.0
+        }
+      },
+      {
+        "name": "Chrome Effect",
+        "CIName": "CIPhotoEffectChrome"
+      },
+      {
+        "name": "Instant Effect",
+        "CIName": "CIPhotoEffectInstant"
+      },
+      {
+        "name": "B&W",
+        "CIName": "CIPhotoEffectMono"
+      },
+      {
+        "name": "Pixelate",
+        "CIName": "CIPixellate"
+      }
+    ];
 
     var loadApp = function () {
       var $ul = $('ul.filters');
@@ -46,9 +110,9 @@
       // Create filters
       for (var i=0; i<filters.length; i++) {
         var filter = filters[i];
-        var $li = $("<li><img src='' alt=''><div class='caption'>" + filter + "</div></li>");
+        var $li = $("<li><img src='' alt=''><div class='caption'>" + filter.name + "</div></li>");
         setTransform($li[0], "translate(" + x + "px," + y + "px)");
-        $li.find('img')[0].src = createThumbnail(filter);
+        $li.find('img')[0].src = createThumbnail(filter.CIName, filter.options);
         $ul.append($li);
         x += 100;
       }

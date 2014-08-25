@@ -61,12 +61,12 @@
     JSECoreImage *imageConverter = [JSECoreImage create];
     UIImage *srcImage = [UIImage imageNamed:@"sunflower.png"];
     
-    ctx[@"createThumbnail"] = ^(NSString *filter) {
+    ctx[@"createThumbnail"] = ^(NSString *name, NSDictionary *options) {
         UIImage *converted;
-        if ([filter isEqualToString:@"normal"]) {
+        if ([name isEqualToString:@"Normal"]) {
             converted = srcImage;
         } else {
-            converted = [imageConverter applyVignetteFilter:srcImage withRadius:20.0 andIntensity:0.5];
+            converted = [imageConverter applyFilter:name onImage:srcImage options:options];
         }
         
         // Write to the temp directory
