@@ -31,10 +31,10 @@ body {
 #image-preview {
   position: absolute;
   top: 0;
-  bottom: 180px;
+  bottom: 150px;
   left: 0;
   right: 0;
-  background: blue;
+  background: #eee;
 }
 
 
@@ -47,12 +47,12 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 180px;
+  height: 150px;
 }
 
 ul.filters {
   position: absolute;
-  top: 0;
+  top: 10px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -67,27 +67,26 @@ ul.filters {
 ul.filters li {
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
+  width: 80px;
   -webkit-transform-origin: 0 0;
   display: block;
   margin: 10px;
-  width: 80px;
-  height: 80px;
-  background: yellow;
 }
 
-li.filter.selected {
+ul.filters li.selected {
   border: 2px solid blue;
 }
 
-li.filter canvas {
-  width: 70px;
-  height: 70px;
-  margin-bottom: 10px;
+ul.filters li canvas {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 5px;
   background: blue;
 }
 
-li.filter .caption {
+ul.filters li .caption {
   font-size: 13px;
   text-transform: uppercase;
 }
