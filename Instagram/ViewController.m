@@ -57,19 +57,24 @@
     ctx[@"JSEImagePicker"] = [JSEImagePicker class];
     ctx[@"JSECoreImage"] = [JSECoreImage class];
     
-//    // Create filter thumbnails
-//    JSECoreImage *imageConverter = [JSECoreImage create];
-//    UIImage *srcImage = [UIImage imageNamed:@"sunflower.png"];
-//    ctx[@"createThumbnail"] = ^(NSString *filter) {
-//        UIImage *converted = [imageConverter applyVignetteFilter:srcImage withRadius:20.0 andIntensity:0.5];
-//        
-//        // Write to the temp directory
-//        NSString *docsPath = [NSTemporaryDirectory() stringByStandardizingPath];
-//        NSString *tempFile = [NSString stringWithFormat:@"%@/PHOTO_%@.png", docsPath, [[NSUUID UUID] UUIDString]];
-//        [UIImagePNGRepresentation(converted) writeToFile:tempFile atomically:YES];
-//        
-//        return [[NSURL fileURLWithPath:tempFile] absoluteString];
-//    };
+    // Create filter thumbnails
+    JSECoreImage *imageConverter = [JSECoreImage create];
+    UIImage *srcImage = [UIImage imageNamed:@"sunflower.png"];
+    
+    ctx[@"createThumbnail"] = ^(NSString *filter) {
+        UIImage *converted;
+        if ([filter isEqualToString:@"normal"]) {
+            converted = srcImage;
+        } else {
+            converted = [imageConverter applyVignetteFilter:srcImage withRadius:20.0 andIntensity:0.5];
+        }
+        
+        // Write to the temp directory
+        NSString *docsPath = [NSTemporaryDirectory() stringByStandardizingPath];
+        NSString *tempFile = [NSString stringWithFormat:@"%@/PHOTO_%@.png", docsPath, [[NSUUID UUID] UUIDString]];
+        [UIImagePNGRepresentation(converted) writeToFile:tempFile atomically:YES];
+        return [[NSURL fileURLWithPath:tempFile] absoluteString];
+    };
     
     // Load the webapp
     [ctx evaluateScript:@"loadApp()"];

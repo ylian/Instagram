@@ -45,8 +45,10 @@
 
       // Create filters
       for (var i=0; i<filters.length; i++) {
-        var $li = $("<li><img src='' alt=''><div class='caption'>" + filters[i] + "</div></li>");
+        var filter = filters[i];
+        var $li = $("<li><img src='' alt=''><div class='caption'>" + filter + "</div></li>");
         setTransform($li[0], "translate(" + x + "px," + y + "px)");
+        $li.find('img')[0].src = createThumbnail(filter);
         $ul.append($li);
         x += 100;
       }
