@@ -23,18 +23,6 @@ body {
   -webkit-perspective: 1500px;
 }
 
-.clear {
-  clear: both;
-}
-
-.float-left {
-  float: left;
-}
-
-.float-right {
-  float: right;
-}
-
 
 /*
 * Image Preview
@@ -43,10 +31,10 @@ body {
 #image-preview {
   position: absolute;
   top: 0;
-  bottom: 30%;
+  bottom: 180px;
   left: 0;
   right: 0;
-  background: red;
+  background: blue;
 }
 
 
@@ -56,10 +44,10 @@ body {
 
 #filter-area {
   position: absolute;
-  top: 70%;
   left: 0;
   right: 0;
   bottom: 0;
+  height: 180px;
 }
 
 ul.filters {
@@ -68,17 +56,19 @@ ul.filters {
   padding: 0;
   text-align: center;
   width: 100%;
+  background: red;
+  height: 100%;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
-li.filter {
+ul.filters li {
   display: block;
   float: left;
   margin: 10px;
-  width: 90px;
-  height: 100px;
-  margin: 10px;
+  width: 80px;
+  height: 80px;
+  background: yellow;
 }
 
 li.filter.selected {
