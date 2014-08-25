@@ -38,19 +38,30 @@
       var $ul = $('ul.filters');
       var x = 0, y = 0;
 
+      // Create filters
       for (var i=0; i<filters.length; i++) {
         var $li = $("<li><canvas width='100px' height='100px'></canvas><div class='caption'>" + filters[i] + "</div></li>");
         setTransform($li[0], "translate(" + x + "px," + y + "px)");
         x += 100;
         $ul.append($li);
       }
+
+      // Handle clicks on the camera button
+      $('#camera-icon img').on('click', function(evt) {
+        var picker = JSEImagePicker.create();
+        picker.getPicture({sourceType: 'Camera'});
+      });
     };
     $(loadApp);
   </script>
 
 </head>
 <body>
-<div id="image-preview"></div>
+<div id="image-preview">
+  <div id="camera-icon">
+    <img src="images/camera-icon.png" alt="Camera">
+  </div>
+</div>
 <div id="filter-area">
   <ul class="filters"></ul>
 </div>

@@ -23,6 +23,7 @@
 		8941F31119AA8B66008656B3 /* InstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8941F31019AA8B66008656B3 /* InstagramTests.m */; };
 		8941F31E19AA8C9B008656B3 /* JSECoreImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8941F31D19AA8C9B008656B3 /* JSECoreImage.m */; };
 		8941F32019AA8D49008656B3 /* HTML in Resources */ = {isa = PBXBuildFile; fileRef = 8941F31F19AA8D49008656B3 /* HTML */; };
+		898139CD19AAD5370092B7B2 /* JSEImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 898139CC19AAD5370092B7B2 /* JSEImagePicker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		8941F31C19AA8C9B008656B3 /* JSECoreImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSECoreImage.h; path = JSExport/JSECoreImage.h; sourceTree = "<group>"; };
 		8941F31D19AA8C9B008656B3 /* JSECoreImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSECoreImage.m; path = JSExport/JSECoreImage.m; sourceTree = "<group>"; };
 		8941F31F19AA8D49008656B3 /* HTML */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTML; sourceTree = "<group>"; };
+		898139CB19AAD5370092B7B2 /* JSEImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSEImagePicker.h; sourceTree = "<group>"; };
+		898139CC19AAD5370092B7B2 /* JSEImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSEImagePicker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,8 @@
 		8941F31B19AA8C73008656B3 /* JSExport */ = {
 			isa = PBXGroup;
 			children = (
+				898139CB19AAD5370092B7B2 /* JSEImagePicker.h */,
+				898139CC19AAD5370092B7B2 /* JSEImagePicker.m */,
 				8941F31C19AA8C9B008656B3 /* JSECoreImage.h */,
 				8941F31D19AA8C9B008656B3 /* JSECoreImage.m */,
 			);
@@ -269,6 +274,7 @@
 				8941F2FC19AA8B66008656B3 /* ViewController.m in Sources */,
 				8941F2F619AA8B66008656B3 /* AppDelegate.m in Sources */,
 				8941F2F219AA8B66008656B3 /* main.m in Sources */,
+				898139CD19AAD5370092B7B2 /* JSEImagePicker.m in Sources */,
 				8941F31E19AA8C9B008656B3 /* JSECoreImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

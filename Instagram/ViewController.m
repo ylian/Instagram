@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
+#import "JSEImagePicker.h"
 
 @implementation ViewController
 
@@ -43,7 +44,7 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return UIStatusBarStyleLightContent;
+    return UIStatusBarStyleDefault;
 }
 
 
@@ -52,6 +53,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     JSContext *ctx = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    ctx[@"JSEImagePicker"] = [JSEImagePicker class];
 }
 
 @end
