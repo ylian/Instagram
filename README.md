@@ -1,4 +1,4 @@
-This is a demo project I made for the DevHouse Waterloo Meetup on Aug. 25, 2014. The goal is to demonstrate the great power of using `JSExport` to build a new generation of hybrid apps. You can see my slides [here](http://slides.com/ylian/JSExport).
+This is a demo project I made for the DevHouse Waterloo Meetup on Aug. 25, 2014. The goal is to demonstrate the great power of using `JSExport` to build a new generation of hybrid apps. You can see my slides [here](http://slides.com/ylian/jsexport#/).
 
 `JSExport` is Apple's new Objective-C to JavaScript bridge, but it's much more than that. It's a huge leap in terms of developing hybrid apps --- apps that combile native technology with web technology, making use of each platform's strength.
 
